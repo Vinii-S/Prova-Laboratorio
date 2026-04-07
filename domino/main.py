@@ -24,6 +24,7 @@ def main():
     jogadores = domino.distribuir_pecas(pecas)
     
     jogador_atual, peca_inicial = domino.encontrar_inicio(jogadores)
+    time.sleep(2)
     print(f"\nSorteio feito! Quem começa é: {jogador_atual} com o duplo [{peca_inicial[0]}|{peca_inicial[1]}]")
     
     mesa = []
@@ -42,7 +43,6 @@ def main():
         imprimir_mesa(mesa)
         validas = domino.obter_jogadas_validas(mao, ponta_esq, ponta_dir)
         
-        # Estrutura de Fluxo: Tratamento de passe e trancamento
         if not validas:
             print(f"❌ {nome_atual} não tem peças válidas e PASSOU A VEZ.")
             passos_consecutivos += 1
@@ -63,6 +63,7 @@ def main():
                 mesa.append(jogada) # Adiciona no final
                 ponta_esq, ponta_dir = jogada[0], jogada[1]
                 print(f"🎯 {nome_atual} iniciou colocando [{jogada[0]}|{jogada[1]}].")
+                time.sleep(2)
             
             else:
                 if nome_atual == "Você":
